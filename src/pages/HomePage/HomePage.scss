@@ -1,0 +1,115 @@
+.homepage {
+    & .controls {
+        & h1 {
+            font-size: 4rem;
+            text-align: center;
+        }
+
+        &__inputs {
+            margin-top: 5vh;
+            display: flex;
+            justify-content: center;
+
+            & .add-btn {
+                font-size: 1.7rem;
+                color: white;
+                padding: 1rem 2rem;
+                border: none;
+                transition: 0.3s all ease-out;
+                cursor: pointer;
+
+
+                background-color: #575fcf;
+
+                &:hover {
+                    background-color: #3c40c6;
+                }
+
+            }
+
+            &>* {
+                padding: 1rem;
+                margin: 0 5vw;
+            }
+        }
+    }
+
+    & .posts-list {
+        margin-top: 5vh;
+
+        & .not-found {
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        & ul {
+            margin-top: 3vh;
+
+            & li {
+                padding: 3rem;
+                border: 1px solid rgb(110, 106, 106);
+                display: flex;
+                justify-content: space-between;
+                box-shadow: 0 0.2rem 0.3rem 0 black;
+                transition: 0.2s all ease-out;
+
+                &:hover {
+                    box-shadow: 0 0.5rem 0.3rem 0.2rem black;
+                    transform: translateY(-0.3rem);
+                }
+
+                &:not(:last-child) {
+                    margin-bottom: 3rem;
+                }
+
+                & .info {
+                    width: 75%;
+
+                    & h3 {
+                        padding-bottom: 1rem;
+                        font-size: 2.5rem;
+                        border-bottom: 1px solid #a4b0be;
+                    }
+
+                    & p {
+                        font-size: 1.7rem;
+                        width: 70%;
+                        margin: 2rem 0 0;
+                    }
+                }
+
+                & .buttons {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+
+                    & button {
+                        font-size: 1.7rem;
+                        color: white;
+                        padding: 1rem;
+                        border: none;
+                        transition: 0.3s all ease-out;
+                        cursor: pointer;
+                    }
+
+                    &__delete {
+                        background-color: #e84118;
+
+                        &:hover {
+                            background-color: #c23616;
+                        }
+                    }
+
+                    &__read {
+                        background-color: #009432;
+
+                        &:hover {
+                            background-color: #017929;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

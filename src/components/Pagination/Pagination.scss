@@ -1,0 +1,24 @@
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 7vh;
+
+    &__item {
+        padding: 1rem 2rem;
+        border: 1px solid #a4b0be;
+        font-size: 2rem;
+        transition: 0.2s all ease-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: lighten($color: #bdc3c7, $amount: 10);
+            transform: scale(1.05);
+        }
+    }
+
+    & .selected {
+        background-color: #bdc3c7;
+        transform: scale(1.05);
+    }
+}
