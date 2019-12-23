@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { fetchAllPosts, removePost } from "../../redux/actions";
 
 import Pagination from "../../components/Pagination/Pagination";
+import PostInfo from "../../components/PostInfo/PostInfo";
+import CustomButton from "../../components/CustomButton/CustomButton";
 
 import "./HomePage.scss";
 
@@ -41,7 +43,7 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
   return (
     <main className="homepage">
       <section className="controls">
-        <h1>Home Page</h1>
+        <h1>List of Posts</h1>
 
         <div className="controls__inputs">
           <input
@@ -70,23 +72,21 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
             {filteredPosts
               .slice(firstPostOnPage, lastPostOnPage)
               .map((post, idx) => (
-                <li key={idx}>
-                  <div className="info">
-                    <h3>{post.title}</h3>
-                    <p>{post.body}</p>
-                    <p>#{post.id}</p>
-                  </div>
+                <li className="post-info" key={idx}>
+                  <PostInfo data={post} />
 
                   <div className="buttons">
-                    <button className="buttons__read">
-                      <Link to={`/posts/${post.id}`}>Read more...</Link>
-                    </button>
-                    <button
+                    <CustomButton
+                      to={`/posts/${post.id}`}
+                      color="green"
+                      text="Read more..."
+                    />
+
+                    <CustomButton
                       onClick={() => removePost(post.id)}
-                      className="buttons__delete"
-                    >
-                      Delete
-                    </button>
+                      color="red"
+                      text="Delete"
+                    />
                   </div>
                 </li>
               ))}
@@ -103,8 +103,7 @@ HomePage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  posts: state.posts.posts,
-  state: state
+  posts: state.posts.posts
 });
 
 export default connect(mapStateToProps, { fetchAllPosts, removePost })(

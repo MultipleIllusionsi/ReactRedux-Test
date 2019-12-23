@@ -9,6 +9,10 @@ import {
   editPost
 } from "../../redux/actions";
 
+import PostInfo from "../../components/PostInfo/PostInfo";
+import CustomButton from "../../components/CustomButton/CustomButton";
+import ChangeForm from "../../components/ChangeForm/ChangeForm";
+
 import "./PostPage.scss";
 
 const PostPage = props => {
@@ -73,60 +77,37 @@ const PostPage = props => {
       )}
 
       <section className="post-info">
-        <div className="info">
-          <h3>{post.title}</h3>
-          <p>{post.body}</p>
-          <p>#{post.id}</p>
-        </div>
+        <PostInfo data={post} />
 
         <div className="buttons">
-          <button onClick={() => setOpen(!open)} className="buttons__edit">
-            Edit
-          </button>
-          <button
+          <CustomButton
+            onClick={() => setOpen(!open)}
+            color="blue"
+            text="Edit"
+          />
+
+          <CustomButton
             onClick={() => {
               removePost(+id);
               history.push(`/posts`);
             }}
-            className="buttons__delete"
-          >
-            Delete
-          </button>
+            color="red"
+            text="Delete"
+          />
         </div>
       </section>
 
       {open && (
-        <section className="form-edit">
-          <form onSubmit={onSubmit}>
-            <div>
-              <label htmlFor="title">Title</label>
-              <input
-                onChange={e =>
-                  setData({ title: e.target.value, body: data.body, id: +id })
-                }
-                id="title"
-                type="text"
-                placeholder="Title..."
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="text">Text</label>
-              <textarea
-                onChange={e =>
-                  setData({ body: e.target.value, title: data.title, id: +id })
-                }
-                id="text"
-                rows="5"
-                placeholder="Text..."
-                required
-              ></textarea>
-            </div>
-
-            <button type="submit">Save</button>
-          </form>
-        </section>
+        <ChangeForm
+          text="Save"
+          onSubmit={onSubmit}
+          handlerTitle={e =>
+            setData({ title: e.target.value, body: data.body, id: +id })
+          }
+          handlerBody={e =>
+            setData({ body: e.target.value, title: data.title, id: +id })
+          }
+        />
       )}
 
       <section className="comments">

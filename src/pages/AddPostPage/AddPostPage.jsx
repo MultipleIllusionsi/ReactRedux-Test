@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { addPost } from "../../redux/actions";
+
+import ChangeForm from "../../components/ChangeForm/ChangeForm";
 
 import "./AddPostPage.scss";
 
@@ -30,32 +33,12 @@ const AddPostPage = ({ addPost, history }) => {
         <h1>Add Post</h1>
       </div>
 
-      <form onSubmit={onSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            autoFocus
-            onChange={e => setData({ title: e.target.value, body: data.body })}
-            id="title"
-            type="text"
-            placeholder="Title..."
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor="text">Text</label>
-          <textarea
-            onChange={e => setData({ body: e.target.value, title: data.title })}
-            id="text"
-            rows="10"
-            placeholder="Text..."
-            required
-          ></textarea>
-        </div>
-
-        <button type="submit">Add</button>
-      </form>
+      <ChangeForm
+        text="Add"
+        onSubmit={onSubmit}
+        handlerTitle={e => setData({ title: e.target.value, body: data.body })}
+        handlerBody={e => setData({ body: e.target.value, title: data.title })}
+      />
     </main>
   );
 };

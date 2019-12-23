@@ -1,0 +1,39 @@
+.green {
+    background-color: #009432;
+
+    &:hover {
+        background-color: #017929;
+    }
+}
+
+.red {
+    background-color: #e84118;
+
+    &:hover {
+        background-color: #c23616;
+    }
+}
+
+.blue {
+    background-color: #686de0;
+
+    &:hover {
+        background-color: #4834d4;
+    }
+}
+
+.buttons {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    & button {
+        font-size: 1.7rem;
+        color: white;
+        padding: 1rem;
+        border: none;
+        transition: 0.3s all ease-out;
+        cursor: pointer;
+    }
+}
