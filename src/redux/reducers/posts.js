@@ -5,25 +5,25 @@ import {
   FETCH_ALL_POSTS
 } from "../actionTypes";
 
-const INITIAL_STATE = { posts: [] };
+let arrLength = 100;
+
+const INITIAL_STATE = { posts: [], arrLength };
 
 const posts = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case FETCH_ALL_POSTS: {
-      return {
-        posts: payload,
-        length: payload.length
-      };
+      return { ...state, posts: payload };
     }
 
     case ADD_POST: {
       const { title, body } = payload;
       return {
+        ...state,
         posts: [
           ...state.posts,
           {
             userId: 999,
-            id: ++state.posts.length,
+            id: ++state.arrLength,
             title,
             body
           }
@@ -34,6 +34,7 @@ const posts = (state = INITIAL_STATE, { type, payload }) => {
     case EDIT_POST: {
       const { title, body, id } = payload;
       return {
+        ...state,
         posts: state.posts.map(post =>
           post.id === id ? { ...post, title, body } : post
         )
@@ -42,6 +43,7 @@ const posts = (state = INITIAL_STATE, { type, payload }) => {
 
     case REMOVE_POST: {
       return {
+        ...state,
         posts: state.posts.filter(post => post.id !== payload.id)
       };
     }

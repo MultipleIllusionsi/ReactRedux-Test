@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./ChangeForm.scss";
 
@@ -30,5 +31,12 @@ const ChangeForm = ({ onSubmit, handlerTitle, handlerBody, text }) => (
     <button type="submit">{text}</button>
   </form>
 );
+
+ChangeForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  handlerTitle: PropTypes.func.isRequired,
+  handlerBody: PropTypes.func.isRequired,
+  text: PropTypes.string
+};
 
 export default ChangeForm;

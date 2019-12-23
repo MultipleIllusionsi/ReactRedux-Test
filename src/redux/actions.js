@@ -3,11 +3,14 @@ import {
   REMOVE_POST,
   EDIT_POST,
   FETCH_ALL_POSTS,
+  FETCH_ALL_POSTS_FAILURE,
   FETCH_USERDATA,
-  FETCH_COMMENTS
+  FETCH_USERDATA_FAILURE,
+  FETCH_COMMENTS,
+  FETCH_COMMENTS_FAILURE
 } from "./actionTypes";
 
-import { API } from "../assets/constants";
+import { API, customUser } from "../assets/constants";
 
 export const fetchAllPosts = () => dispatch => {
   fetch(`${API}posts`)
@@ -17,18 +20,35 @@ export const fetchAllPosts = () => dispatch => {
         type: FETCH_ALL_POSTS,
         payload: posts
       })
+    )
+    .catch(err =>
+      dispatch({
+        type: FETCH_ALL_POSTS_FAILURE,
+        payload: err
+      })
     );
 };
 
 export const fetchUserData = userId => dispatch => {
-  fetch(`${API}users/${userId}`)
-    .then(res => res.json())
-    .then(user =>
-      dispatch({
+  userId === customUser.id
+    ? dispatch({
         type: FETCH_USERDATA,
-        payload: user
+        payload: customUser
       })
-    );
+    : fetch(`${API}users/${userId}`)
+        .then(res => res.json())
+        .then(user =>
+          dispatch({
+            type: FETCH_USERDATA,
+            payload: user
+          })
+        )
+        .catch(err =>
+          dispatch({
+            type: FETCH_USERDATA_FAILURE,
+            payload: err
+          })
+        );
 };
 
 export const fetchComments = postId => dispatch => {
@@ -38,6 +58,12 @@ export const fetchComments = postId => dispatch => {
       dispatch({
         type: FETCH_COMMENTS,
         payload: comment
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: FETCH_COMMENTS_FAILURE,
+        payload: err
       })
     );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./PostInfo.scss";
 
@@ -9,4 +10,9 @@ const PostInfo = ({ data }) => (
     <p>#{data.id}</p>
   </div>
 );
+
+PostInfo.propTypes = {
+  data: PropTypes.object.isRequired
+};
+
 export default PostInfo;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 import {
@@ -13,6 +13,8 @@ import PostInfo from "../../components/PostInfo/PostInfo";
 import CustomButton from "../../components/CustomButton/CustomButton";
 import ChangeForm from "../../components/ChangeForm/ChangeForm";
 
+import { customUserId } from "../../assets/constants";
+
 import "./PostPage.scss";
 
 const PostPage = props => {
@@ -24,11 +26,12 @@ const PostPage = props => {
     comments,
     posts,
     users,
-    match,
+    match: {
+      params: { id }
+    },
     history
   } = props;
 
-  const { id } = match.params;
   const post = posts.find(post => post.id === +id);
   const user = users.find(user => user.id === post.userId);
 
@@ -40,11 +43,15 @@ const PostPage = props => {
   });
 
   useEffect(() => {
-    if (!users.find(user => user.id === post.userId)) {
+    fetchComments(id);
+    if (post.userId === customUserId) {
+      fetchUserData(customUserId);
+      return;
+    }
+    if (!user) {
       fetchUserData(post.userId);
     }
-    fetchComments(id);
-  }, [fetchComments, fetchUserData, id, post.userId, users]);
+  }, [fetchComments, fetchUserData, id, post.userId, user]);
 
   const onSubmit = e => {
     e.preventDefault();
@@ -55,9 +62,12 @@ const PostPage = props => {
   return (
     <main className="postpage">
       <div className="heading">
-        <Link className="go-back" to="/posts">
-          Go back
-        </Link>
+        <CustomButton
+          className="go-back"
+          to="/posts"
+          color="black"
+          text="Go back"
+        />
 
         <h1>Post #{id}</h1>
       </div>
@@ -124,6 +134,16 @@ const PostPage = props => {
       </section>
     </main>
   );
+};
+
+PostPage.propTypes = {
+  fetchUserData: PropTypes.func.isRequired,
+  fetchComments: PropTypes.func.isRequired,
+  removePost: PropTypes.func.isRequired,
+  editPost: PropTypes.func.isRequired,
+  posts: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
+  comments: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({

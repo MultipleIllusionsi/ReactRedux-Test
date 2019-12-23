@@ -36,5 +36,6 @@ a {
   font-size: 1.7rem;
   background-color: rgb(70, 70, 70);
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem;
+  border: none;
 }

@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import "./CustomButton.scss";
 
-const CustomButton = ({ color, text, to, onClick }) => (
+const CustomButton = ({ color, text, to, className, onClick }) => (
   <>
     {to ? (
-      <button className={color}>
+      <button className={`${className} ${color}`}>
         <Link to={to}>{text}</Link>
       </button>
     ) : (
@@ -16,5 +17,13 @@ const CustomButton = ({ color, text, to, onClick }) => (
     )}
   </>
 );
+
+CustomButton.propTypes = {
+  color: PropTypes.string,
+  text: PropTypes.string,
+  to: PropTypes.string,
+  className: PropTypes.string,
+  onClick: PropTypes.func
+};
 
 export default CustomButton;

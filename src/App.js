@@ -1,8 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import "./App.css";
-
 // import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
