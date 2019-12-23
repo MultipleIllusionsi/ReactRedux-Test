@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/ReactRedux-Test/static/css/main.1900a6ed.chunk.css",
+    "main.js": "/ReactRedux-Test/static/js/main.818f50e1.chunk.js",
+    "main.js.map": "/ReactRedux-Test/static/js/main.818f50e1.chunk.js.map",
+    "runtime-main.js": "/ReactRedux-Test/static/js/runtime-main.0d4f35c2.js",
+    "runtime-main.js.map": "/ReactRedux-Test/static/js/runtime-main.0d4f35c2.js.map",
+    "static/js/2.2852b12e.chunk.js": "/ReactRedux-Test/static/js/2.2852b12e.chunk.js",
+    "static/js/2.2852b12e.chunk.js.map": "/ReactRedux-Test/static/js/2.2852b12e.chunk.js.map",
+    "static/css/3.53e274b1.chunk.css": "/ReactRedux-Test/static/css/3.53e274b1.chunk.css",
+    "static/js/3.e48f3b40.chunk.js": "/ReactRedux-Test/static/js/3.e48f3b40.chunk.js",
+    "static/js/3.e48f3b40.chunk.js.map": "/ReactRedux-Test/static/js/3.e48f3b40.chunk.js.map",
+    "static/css/4.594c258b.chunk.css": "/ReactRedux-Test/static/css/4.594c258b.chunk.css",
+    "static/js/4.2bf08c8b.chunk.js": "/ReactRedux-Test/static/js/4.2bf08c8b.chunk.js",
+    "static/js/4.2bf08c8b.chunk.js.map": "/ReactRedux-Test/static/js/4.2bf08c8b.chunk.js.map",
+    "static/css/5.23f0b4db.chunk.css": "/ReactRedux-Test/static/css/5.23f0b4db.chunk.css",
+    "static/js/5.26c16849.chunk.js": "/ReactRedux-Test/static/js/5.26c16849.chunk.js",
+    "static/js/5.26c16849.chunk.js.map": "/ReactRedux-Test/static/js/5.26c16849.chunk.js.map",
+    "index.html": "/ReactRedux-Test/index.html",
+    "precache-manifest.ca9b7a0375ed5a3c156125fd5c9cc4d7.js": "/ReactRedux-Test/precache-manifest.ca9b7a0375ed5a3c156125fd5c9cc4d7.js",
+    "service-worker.js": "/ReactRedux-Test/service-worker.js",
+    "static/css/3.53e274b1.chunk.css.map": "/ReactRedux-Test/static/css/3.53e274b1.chunk.css.map",
+    "static/css/4.594c258b.chunk.css.map": "/ReactRedux-Test/static/css/4.594c258b.chunk.css.map",
+    "static/css/5.23f0b4db.chunk.css.map": "/ReactRedux-Test/static/css/5.23f0b4db.chunk.css.map",
+    "static/css/main.1900a6ed.chunk.css.map": "/ReactRedux-Test/static/css/main.1900a6ed.chunk.css.map",
+    "static/js/2.2852b12e.chunk.js.LICENSE": "/ReactRedux-Test/static/js/2.2852b12e.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d4f35c2.js",
+    "static/js/2.2852b12e.chunk.js",
+    "static/css/main.1900a6ed.chunk.css",
+    "static/js/main.818f50e1.chunk.js"
+  ]
+}
