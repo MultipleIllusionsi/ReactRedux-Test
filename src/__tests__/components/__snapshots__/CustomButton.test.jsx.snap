@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render CustomButton-handler 1`] = `
+"<Fragment>
+  <button onClick={[Function: onClick]} className=\\"red\\">
+    Delete
+  </button>
+</Fragment>"
+`;
+
+exports[`expect to render CustomButton-link 1`] = `
+"<Fragment>
+  <button className=\\"go-back black\\">
+    <Link to=\\"/posts\\">
+      Go back
+    </Link>
+  </button>
+</Fragment>"
+`;

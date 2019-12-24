@@ -1,12 +1,9 @@
 {
   "name": "test",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "homepage": "https://multipleillusionsi.github.io/ReactRedux-Test/",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
     "gh-pages": "^2.1.1",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
@@ -40,5 +37,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^24.9.0",
+    "redux-mock-store": "^1.5.4"
   }
 }

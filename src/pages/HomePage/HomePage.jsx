@@ -9,24 +9,29 @@ import Pagination from "../../components/Pagination/Pagination";
 import PostInfo from "../../components/PostInfo/PostInfo";
 import CustomButton from "../../components/CustomButton/CustomButton";
 
+import { postsPerPage } from "../../assets/constants";
+
 import "./HomePage.scss";
 
 const HomePage = ({ fetchAllPosts, removePost, posts }) => {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState("");
+  const [select, setSelect] = useState("title");
 
   useEffect(() => {
     if (!posts.length) {
       fetchAllPosts();
-      console.log("posts was fetched");
     }
   }, [fetchAllPosts, posts]);
 
-  const postsPerPage = 10;
-
-  const filteredPosts = posts.filter(post =>
-    post.body.toLowerCase().includes(filter.toLowerCase())
-  );
+  const filteredPosts =
+    select === "text"
+      ? posts.filter(post =>
+          post.body.toLowerCase().includes(filter.toLowerCase())
+        )
+      : posts.filter(post =>
+          post.title.toLowerCase().includes(filter.toLowerCase())
+        );
 
   const handlePagination = ({ target: { value } }) => {
     value && setPage(value);
@@ -46,11 +51,16 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
         <h1>List of Posts</h1>
 
         <div className="controls__inputs">
+          <select value={select} onChange={e => setSelect(e.target.value)}>
+            <option value="title">Title</option>
+            <option value="text">Text</option>
+          </select>
+
           <input
             onChange={searchInputHandler}
             value={filter}
             type="text"
-            placeholder="Filter by text..."
+            placeholder={`Filter by ${select}...`}
           />
           <Link className="add-btn" to="add/post">
             Add Post

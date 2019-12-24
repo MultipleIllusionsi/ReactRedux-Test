@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render Pagination component 1`] = `
+"<ul onClick={[Function: handler]} className=\\"pagination\\">
+  <li value={1} className=\\"pagination__item false\\">
+    1
+  </li>
+  <li value={2} className=\\"pagination__item false\\">
+    2
+  </li>
+  <li value={3} className=\\"pagination__item false\\">
+    3
+  </li>
+  <li value={4} className=\\"pagination__item false\\">
+    4
+  </li>
+  <li value={5} className=\\"pagination__item selected\\">
+    5
+  </li>
+  <li value={6} className=\\"pagination__item false\\">
+    6
+  </li>
+  <li value={7} className=\\"pagination__item false\\">
+    7
+  </li>
+  <li value={8} className=\\"pagination__item false\\">
+    8
+  </li>
+  <li value={9} className=\\"pagination__item false\\">
+    9
+  </li>
+  <li value={10} className=\\"pagination__item false\\">
+    10
+  </li>
+</ul>"
+`;

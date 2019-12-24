@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render PostInfo component 1`] = `
+"<div className=\\"info\\">
+  <h3>
+    some title
+  </h3>
+  <p>
+    some text
+  </p>
+  <p>
+    #
+    10
+  </p>
+</div>"
+`;

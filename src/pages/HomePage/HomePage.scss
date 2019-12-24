@@ -10,7 +10,8 @@
             display: flex;
             justify-content: center;
 
-            & input {
+            & input,
+            & select {
                 font-size: 2rem;
             }
 
@@ -20,6 +21,7 @@
                 padding: 1rem 2rem;
                 border: none;
                 transition: 0.3s all ease-out;
+                margin-left: 10vw;
 
                 background-color: #575fcf;
 
@@ -31,7 +33,6 @@
 
             &>* {
                 padding: 1rem;
-                margin: 0 5vw;
             }
         }
     }
