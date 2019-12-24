@@ -7,11 +7,11 @@ import "./CustomButton.scss";
 const CustomButton = ({ color, text, to, className, onClick }) => (
   <>
     {to ? (
-      <button className={`${className} ${color}`}>
+      <button className={`custom-btn ${className} ${color}`}>
         <Link to={to}>{text}</Link>
       </button>
     ) : (
-      <button onClick={onClick} className={color}>
+      <button onClick={onClick} className={`custom-btn ${color}`}>
         {text}
       </button>
     )}

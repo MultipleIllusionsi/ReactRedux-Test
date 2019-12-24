@@ -1,0 +1,30 @@
+.error-image-overlay {
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-image-container {
+    background-image: url("https://i.imgur.com/lKJiT77.png");
+    position: relative;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 70%;
+    height: 70%;
+}
+
+.error-image-text {
+    position: absolute;
+    width: 100%;
+    bottom: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: #2f8e89;
+    text-align: center;
+}

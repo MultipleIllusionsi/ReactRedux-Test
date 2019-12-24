@@ -47,9 +47,15 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
 
   return (
     <main className="homepage">
-      <section className="controls">
+      <header>
+        <CustomButton
+          onClick={() => fetchAllPosts()}
+          color="black"
+          text="Refetch list"
+        />
         <h1>List of Posts</h1>
-
+      </header>
+      <section className="controls">
         <div className="controls__inputs">
           <select value={select} onChange={e => setSelect(e.target.value)}>
             <option value="title">Title</option>
@@ -109,6 +115,7 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
 
 HomePage.propTypes = {
   fetchAllPosts: PropTypes.func.isRequired,
+  removePost: PropTypes.func.isRequired,
   posts: PropTypes.array.isRequired
 };
 

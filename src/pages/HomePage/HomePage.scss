@@ -1,10 +1,20 @@
 .homepage {
-    & .controls {
+    & header {
+        position: relative;
+
         & h1 {
             font-size: 4rem;
             text-align: center;
         }
 
+        & button {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    & .controls {
         &__inputs {
             margin-top: 5vh;
             display: flex;
