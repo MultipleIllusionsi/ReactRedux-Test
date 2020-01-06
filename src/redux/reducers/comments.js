@@ -7,7 +7,7 @@ const comments = (state = INITIAL_STATE, { type, payload }) => {
     case FETCH_COMMENTS: {
       return { ...state, comments: payload };
       // return { ...state, comments: [...state.comments, payload] };
-      // if we wanna save in store comments
+      // if we wanna save comments in store
     }
 
     case FETCH_COMMENTS_FAILURE: {

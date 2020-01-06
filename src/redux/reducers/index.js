@@ -7,7 +7,7 @@ import users from "./users";
 import comments from "./comments";
 
 const persistConfig = {
-  key: "56723452",
+  key: "567234523345",
   storage,
   whitelist: ["posts"]
 };

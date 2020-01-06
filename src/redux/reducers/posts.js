@@ -6,14 +6,14 @@ import {
   FETCH_ALL_POSTS_FAILURE
 } from "../actionTypes";
 
-let arrLength = 100;
+let initialNumberOfPosts = 100;
 
-const INITIAL_STATE = { posts: [], arrLength, error: null };
+const INITIAL_STATE = { posts: [], initialNumberOfPosts, error: null };
 
 const posts = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case FETCH_ALL_POSTS: {
-      return { ...state, posts: payload };
+      return { ...state, posts: payload, initialNumberOfPosts };
     }
 
     case FETCH_ALL_POSTS_FAILURE: {
@@ -28,7 +28,7 @@ const posts = (state = INITIAL_STATE, { type, payload }) => {
           ...state.posts,
           {
             userId: 999,
-            id: ++state.arrLength,
+            id: ++state.initialNumberOfPosts,
             title,
             body
           }

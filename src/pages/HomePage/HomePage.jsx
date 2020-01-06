@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { fetchAllPosts, removePost } from "../../redux/actions";
 
 import Pagination from "../../components/Pagination/Pagination";
@@ -13,16 +12,31 @@ import { postsPerPage } from "../../assets/constants";
 
 import "./HomePage.scss";
 
-const HomePage = ({ fetchAllPosts, removePost, posts }) => {
+const HomePage = () => {
   const [page, setPage] = useState(1);
   const [filter, setFilter] = useState("");
   const [select, setSelect] = useState("title");
 
+  const dispatch = useDispatch();
+
+  const fetchAllPostsHandler = useCallback(() => {
+    dispatch(fetchAllPosts());
+  }, [dispatch]);
+
+  const removePostHandler = useCallback(
+    id => {
+      dispatch(removePost(id));
+    },
+    [dispatch]
+  );
+
+  const posts = useSelector(state => state.posts.posts);
+
   useEffect(() => {
     if (!posts.length) {
-      fetchAllPosts();
+      fetchAllPostsHandler();
     }
-  }, [fetchAllPosts, posts]);
+  }, [fetchAllPostsHandler, posts.length]);
 
   const filteredPosts =
     select === "text"
@@ -49,7 +63,7 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
     <main className="homepage">
       <header>
         <CustomButton
-          onClick={() => fetchAllPosts()}
+          onClick={fetchAllPostsHandler}
           color="black"
           text="Refetch list"
         />
@@ -99,7 +113,7 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
                     />
 
                     <CustomButton
-                      onClick={() => removePost(post.id)}
+                      onClick={() => removePostHandler(post.id)}
                       color="red"
                       text="Delete"
                     />
@@ -113,16 +127,4 @@ const HomePage = ({ fetchAllPosts, removePost, posts }) => {
   );
 };
 
-HomePage.propTypes = {
-  fetchAllPosts: PropTypes.func.isRequired,
-  removePost: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired
-};
-
-const mapStateToProps = state => ({
-  posts: state.posts.posts
-});
-
-export default connect(mapStateToProps, { fetchAllPosts, removePost })(
-  HomePage
-);
+export default HomePage;

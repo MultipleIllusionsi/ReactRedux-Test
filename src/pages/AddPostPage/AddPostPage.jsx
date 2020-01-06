@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useCallback } from "react";
 
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addPost } from "../../redux/actions";
 
 import ChangeForm from "../../components/ChangeForm/ChangeForm";
@@ -9,16 +8,27 @@ import CustomButton from "../../components/CustomButton/CustomButton";
 
 import "./AddPostPage.scss";
 
-const AddPostPage = ({ addPost, id, history }) => {
+const AddPostPage = ({ history }) => {
   const [data, setData] = useState({
     title: "",
     body: ""
   });
 
+  const dispatch = useDispatch();
+
+  const addPostHandler = useCallback(
+    id => {
+      dispatch(addPost(id));
+    },
+    [dispatch]
+  );
+
+  let idForNextPost = useSelector(state => state.posts.initialNumberOfPosts);
+
   const onSubmit = e => {
     e.preventDefault();
-    addPost({ data });
-    history.push(`/posts/${++id}`);
+    addPostHandler({ data });
+    history.push(`/posts/${++idForNextPost}`);
   };
 
   return (
@@ -36,20 +46,11 @@ const AddPostPage = ({ addPost, id, history }) => {
       <ChangeForm
         text="Add"
         onSubmit={onSubmit}
-        handlerTitle={e => setData({ title: e.target.value, body: data.body })}
-        handlerBody={e => setData({ body: e.target.value, title: data.title })}
+        handlerTitle={e => setData({ ...data, title: e.target.value })}
+        handlerBody={e => setData({ ...data, body: e.target.value })}
       />
     </main>
   );
 };
 
-AddPostPage.propTypes = {
-  addPost: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired
-};
-
-const mapStateToProps = state => ({
-  id: state.posts.arrLength
-});
-
-export default connect(mapStateToProps, { addPost })(AddPostPage);
+export default AddPostPage;

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState, useCallback } from "react";
 
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   fetchUserData,
   fetchComments,
@@ -17,47 +16,67 @@ import { customUserId } from "../../assets/constants";
 
 import "./PostPage.scss";
 
-const PostPage = props => {
-  const {
-    fetchUserData,
-    fetchComments,
-    removePost,
-    editPost,
-    comments = [],
-    posts = [],
-    users = [],
-    match: {
-      params: { id }
-    },
-    history
-  } = props;
+const PostPage = ({ history, match: { params } }) => {
+  const dispatch = useDispatch();
 
-  const post = posts.find(post => post.id === +id);
+  const fetchUserDataHandler = useCallback(
+    userId => {
+      dispatch(fetchUserData(userId));
+    },
+    [dispatch]
+  );
+
+  const fetchCommentsHandler = useCallback(
+    postId => {
+      dispatch(fetchComments(postId));
+    },
+    [dispatch]
+  );
+
+  const removePostHandler = useCallback(
+    id => {
+      dispatch(removePost(id));
+    },
+    [dispatch]
+  );
+
+  const editPostHandler = useCallback(
+    id => {
+      dispatch(editPost(id));
+    },
+    [dispatch]
+  );
+
+  const posts = useSelector(state => state.posts.posts);
+  const users = useSelector(state => state.users.users);
+  const comments = useSelector(state => state.comments.comments);
+
+  const post = posts.find(post => post.id === +params.id);
   const user = users.find(user => user.id === post.userId);
 
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({
     title: "",
     body: "",
-    id: +id
+    id: +params.id
   });
 
   useEffect(() => {
-    fetchComments(id);
-  }, [fetchComments, id]);
+    fetchCommentsHandler(params.id);
+  }, [fetchCommentsHandler, params.id]);
 
   useEffect(() => {
     if (post.userId === customUserId && !user) {
-      fetchUserData(customUserId);
+      fetchUserDataHandler(customUserId);
       return;
     }
 
-    !user && fetchUserData(post.userId);
-  }, [fetchUserData, post.userId, user]);
+    !user && fetchUserDataHandler(post.userId);
+  }, [fetchUserDataHandler, post.userId, user]);
 
   const onSubmit = e => {
     e.preventDefault();
-    editPost({ data });
+    editPostHandler({ data });
     setOpen(!open);
   };
 
@@ -71,7 +90,7 @@ const PostPage = props => {
           text="Go back"
         />
 
-        <h1>Post #{id}</h1>
+        <h1>Post #{params.id}</h1>
       </div>
 
       {user && (
@@ -100,7 +119,7 @@ const PostPage = props => {
 
           <CustomButton
             onClick={() => {
-              removePost(+id);
+              removePostHandler(+params.id);
               history.push(`/posts`);
             }}
             color="red"
@@ -113,12 +132,8 @@ const PostPage = props => {
         <ChangeForm
           text="Save"
           onSubmit={onSubmit}
-          handlerTitle={e =>
-            setData({ title: e.target.value, body: data.body, id: +id })
-          }
-          handlerBody={e =>
-            setData({ body: e.target.value, title: data.title, id: +id })
-          }
+          handlerTitle={e => setData({ ...data, title: e.target.value })}
+          handlerBody={e => setData({ ...data, body: e.target.value })}
         />
       )}
 
@@ -138,25 +153,4 @@ const PostPage = props => {
   );
 };
 
-PostPage.propTypes = {
-  fetchUserData: PropTypes.func.isRequired,
-  fetchComments: PropTypes.func.isRequired,
-  removePost: PropTypes.func.isRequired,
-  editPost: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired,
-  users: PropTypes.array.isRequired,
-  comments: PropTypes.array.isRequired
-};
-
-const mapStateToProps = state => ({
-  posts: state.posts.posts,
-  users: state.users.users,
-  comments: state.comments.comments
-});
-
-export default connect(mapStateToProps, {
-  fetchUserData,
-  fetchComments,
-  removePost,
-  editPost
-})(PostPage);
+export default PostPage;
