@@ -23,9 +23,9 @@ const PostPage = props => {
     fetchComments,
     removePost,
     editPost,
-    comments,
-    posts,
-    users,
+    comments = [],
+    posts = [],
+    users = [],
     match: {
       params: { id }
     },
@@ -44,14 +44,16 @@ const PostPage = props => {
 
   useEffect(() => {
     fetchComments(id);
-    if (post.userId === customUserId) {
+  }, [fetchComments, id]);
+
+  useEffect(() => {
+    if (post.userId === customUserId && !user) {
       fetchUserData(customUserId);
       return;
     }
-    if (!user) {
-      fetchUserData(post.userId);
-    }
-  }, [fetchComments, fetchUserData, id, post.userId, user]);
+
+    !user && fetchUserData(post.userId);
+  }, [fetchUserData, post.userId, user]);
 
   const onSubmit = e => {
     e.preventDefault();
