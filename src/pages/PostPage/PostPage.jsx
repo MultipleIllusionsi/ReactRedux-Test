@@ -148,8 +148,8 @@ PostPage.propTypes = {
 
 const mapStateToProps = state => ({
   posts: state.posts.posts,
-  users: state.users,
-  comments: state.comments
+  users: state.users.users,
+  comments: state.comments.comments
 });
 
 export default connect(mapStateToProps, {

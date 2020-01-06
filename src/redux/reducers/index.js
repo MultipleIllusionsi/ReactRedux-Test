@@ -15,5 +15,3 @@ const persistConfig = {
 const rootReducer = combineReducers({ posts, users, comments });
 
 export default persistReducer(persistConfig, rootReducer);
-
-// export default rootReducer;

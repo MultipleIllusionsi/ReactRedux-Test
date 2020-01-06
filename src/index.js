@@ -14,7 +14,7 @@ import App from "./App";
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <HashRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
         <App />
       </HashRouter>
     </PersistGate>

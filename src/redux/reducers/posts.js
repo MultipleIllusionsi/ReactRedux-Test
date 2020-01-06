@@ -2,17 +2,22 @@ import {
   ADD_POST,
   REMOVE_POST,
   EDIT_POST,
-  FETCH_ALL_POSTS
+  FETCH_ALL_POSTS,
+  FETCH_ALL_POSTS_FAILURE
 } from "../actionTypes";
 
 let arrLength = 100;
 
-const INITIAL_STATE = { posts: [], arrLength };
+const INITIAL_STATE = { posts: [], arrLength, error: null };
 
 const posts = (state = INITIAL_STATE, { type, payload }) => {
   switch (type) {
     case FETCH_ALL_POSTS: {
       return { ...state, posts: payload };
+    }
+
+    case FETCH_ALL_POSTS_FAILURE: {
+      return { ...state, error: payload };
     }
 
     case ADD_POST: {
