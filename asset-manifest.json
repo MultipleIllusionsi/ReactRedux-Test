@@ -1,34 +1,34 @@
 {
   "files": {
     "main.css": "/ReactRedux-Test/static/css/main.e0fc18fc.chunk.css",
-    "main.js": "/ReactRedux-Test/static/js/main.0bd08f37.chunk.js",
-    "main.js.map": "/ReactRedux-Test/static/js/main.0bd08f37.chunk.js.map",
-    "runtime-main.js": "/ReactRedux-Test/static/js/runtime-main.bda7b863.js",
-    "runtime-main.js.map": "/ReactRedux-Test/static/js/runtime-main.bda7b863.js.map",
-    "static/js/2.9f07bee6.chunk.js": "/ReactRedux-Test/static/js/2.9f07bee6.chunk.js",
-    "static/js/2.9f07bee6.chunk.js.map": "/ReactRedux-Test/static/js/2.9f07bee6.chunk.js.map",
+    "main.js": "/ReactRedux-Test/static/js/main.67a6f3d0.chunk.js",
+    "main.js.map": "/ReactRedux-Test/static/js/main.67a6f3d0.chunk.js.map",
+    "runtime-main.js": "/ReactRedux-Test/static/js/runtime-main.7aa50eb3.js",
+    "runtime-main.js.map": "/ReactRedux-Test/static/js/runtime-main.7aa50eb3.js.map",
+    "static/js/2.d1341e89.chunk.js": "/ReactRedux-Test/static/js/2.d1341e89.chunk.js",
+    "static/js/2.d1341e89.chunk.js.map": "/ReactRedux-Test/static/js/2.d1341e89.chunk.js.map",
     "static/css/3.ffc9d053.chunk.css": "/ReactRedux-Test/static/css/3.ffc9d053.chunk.css",
-    "static/js/3.dea57dfa.chunk.js": "/ReactRedux-Test/static/js/3.dea57dfa.chunk.js",
-    "static/js/3.dea57dfa.chunk.js.map": "/ReactRedux-Test/static/js/3.dea57dfa.chunk.js.map",
+    "static/js/3.9978d81e.chunk.js": "/ReactRedux-Test/static/js/3.9978d81e.chunk.js",
+    "static/js/3.9978d81e.chunk.js.map": "/ReactRedux-Test/static/js/3.9978d81e.chunk.js.map",
     "static/css/4.5768660b.chunk.css": "/ReactRedux-Test/static/css/4.5768660b.chunk.css",
-    "static/js/4.f56981e9.chunk.js": "/ReactRedux-Test/static/js/4.f56981e9.chunk.js",
-    "static/js/4.f56981e9.chunk.js.map": "/ReactRedux-Test/static/js/4.f56981e9.chunk.js.map",
+    "static/js/4.656019df.chunk.js": "/ReactRedux-Test/static/js/4.656019df.chunk.js",
+    "static/js/4.656019df.chunk.js.map": "/ReactRedux-Test/static/js/4.656019df.chunk.js.map",
     "static/css/5.5306ebb4.chunk.css": "/ReactRedux-Test/static/css/5.5306ebb4.chunk.css",
-    "static/js/5.75fbfbeb.chunk.js": "/ReactRedux-Test/static/js/5.75fbfbeb.chunk.js",
-    "static/js/5.75fbfbeb.chunk.js.map": "/ReactRedux-Test/static/js/5.75fbfbeb.chunk.js.map",
+    "static/js/5.a58035c9.chunk.js": "/ReactRedux-Test/static/js/5.a58035c9.chunk.js",
+    "static/js/5.a58035c9.chunk.js.map": "/ReactRedux-Test/static/js/5.a58035c9.chunk.js.map",
     "index.html": "/ReactRedux-Test/index.html",
-    "precache-manifest.28e13aa9b4fd9a53ef3f55c0af9f3aa5.js": "/ReactRedux-Test/precache-manifest.28e13aa9b4fd9a53ef3f55c0af9f3aa5.js",
+    "precache-manifest.200f62cfb6bfbcb02c4a2311394b215f.js": "/ReactRedux-Test/precache-manifest.200f62cfb6bfbcb02c4a2311394b215f.js",
     "service-worker.js": "/ReactRedux-Test/service-worker.js",
     "static/css/3.ffc9d053.chunk.css.map": "/ReactRedux-Test/static/css/3.ffc9d053.chunk.css.map",
     "static/css/4.5768660b.chunk.css.map": "/ReactRedux-Test/static/css/4.5768660b.chunk.css.map",
     "static/css/5.5306ebb4.chunk.css.map": "/ReactRedux-Test/static/css/5.5306ebb4.chunk.css.map",
     "static/css/main.e0fc18fc.chunk.css.map": "/ReactRedux-Test/static/css/main.e0fc18fc.chunk.css.map",
-    "static/js/2.9f07bee6.chunk.js.LICENSE": "/ReactRedux-Test/static/js/2.9f07bee6.chunk.js.LICENSE"
+    "static/js/2.d1341e89.chunk.js.LICENSE": "/ReactRedux-Test/static/js/2.d1341e89.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.bda7b863.js",
-    "static/js/2.9f07bee6.chunk.js",
+    "static/js/runtime-main.7aa50eb3.js",
+    "static/js/2.d1341e89.chunk.js",
     "static/css/main.e0fc18fc.chunk.css",
-    "static/js/main.0bd08f37.chunk.js"
+    "static/js/main.67a6f3d0.chunk.js"
   ]
 }
